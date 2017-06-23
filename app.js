@@ -47,7 +47,6 @@ rl.on('line',reply=>{
           rl.prompt();
         })
         .catch(err=>{
-          console.log(err);
           console.log('There seem to be a problem connecting to weather service!');
           rl.prompt();
         });
