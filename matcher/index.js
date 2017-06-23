@@ -5,7 +5,7 @@ const XRegExp = require('xregexp');
 let createEntities = (str,pattern)=>{
   return XRegExp.exec(str,XRegExp(pattern,'i'))
 }
-
+//match patern using pattern dictionary and createEntites using XRegExp module
 let matchPattern = (str,cb)=>{
   let getResult = patterns.find(item=>{
     if(XRegExp.test(str,XRegExp(item.pattern,'i'))){

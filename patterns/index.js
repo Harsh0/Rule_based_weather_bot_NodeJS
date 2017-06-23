@@ -1,3 +1,5 @@
+//defining pattern according to regular expression, the pattern that has more values should be written upside,
+//so that maximum entities could be fetched
 const patternDict = [{
   pattern:'\\b(?<greeting>Hi|Hello|Hey)\\b',
   intent:'Hello'

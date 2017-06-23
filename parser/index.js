@@ -4,6 +4,7 @@
 const dictionary = require('./dictionary');
 const moment = require('moment');
 
+// to get the feel according to the temperature
 let getFeel = temp=>{
   if(temp<5){
     return "shievering cold";
@@ -19,7 +20,7 @@ let getFeel = temp=>{
     return "super hot";
   }
 }
-
+//get the prefixes using dictionary
 let getPrefix = (conditionCode,tense='present')=>{
   let findPrefix = dictionary[tense].find(item=>{
     if(item.codes.indexOf(Number(conditionCode))>-1){
@@ -40,7 +41,7 @@ let getDate = day =>{
       return moment().format('DD MMM YYYY');
   }
 }
-
+//requested for currentWeather
 let currentWeather = response =>{
   if(response.query.results){
     let resp = response.query.results.channel;
@@ -54,6 +55,7 @@ let currentWeather = response =>{
   }
 }
 
+//requested for weather forecasting
 let forecastWeather = (response,data)=>{
   if(response.query.results){
     let parseDate = getDate(data.time);

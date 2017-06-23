@@ -1,3 +1,4 @@
+//code for diffrenct yql verbs like thunderstorm and their prefixes
 let present = [{
 	codes: [5,6,7,8,9,10],
 	prefix: "there is"
