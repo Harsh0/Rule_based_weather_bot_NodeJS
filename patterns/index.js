@@ -10,6 +10,9 @@ const patternDict = [{
   pattern:'\\bweather\\sin\\s\\b(?<city>.+)',
   intent:'CurrentWeather'
 },{
+  pattern:'\\bweather\\sof\\s\\b(?<city>.+)',
+  intent:'CurrentWeather'
+},{
   pattern:'\\b(bye|exit)\\b',
   intent:'Exit'
 },{
