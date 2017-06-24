@@ -37,7 +37,7 @@ let getDate = day =>{
       return moment().add(1,'d').format('DD MMM YYYY');
     case 'day after tomorrow':
       return moment().add(2,'d').format('DD MMM YYYY');
-    case 'today':
+    case 'today','now':
       return moment().format('DD MMM YYYY');
   }
 }
@@ -67,7 +67,7 @@ let forecastWeather = (response,data)=>{
     let location = `${resp.location.city}, ${resp.location.country}`;
     let regEx = new RegExp(data.weather,'i');
     let testCondition = regEx.test(getForecast.text);//true or false
-    return `${testCondition?"Yes":"No"}, ${getPrefix(getForecast.code,data.time=='today'?'present':'future')} ${getForecast.text} ${data.time} in ${location}`;
+    return `${testCondition?"Yes":"No"}, ${getPrefix(getForecast.code,data.time=='today'||data.time=='now'?'present':'future')} ${getForecast.text} ${data.time} in ${location}`;
   }else{
     return "I don't seem to know anything about this place...Sorry :(";
   }

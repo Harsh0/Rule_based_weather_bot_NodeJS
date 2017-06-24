@@ -25,7 +25,7 @@ const patternDict = [{
   pattern:'\\b(?<weather>hot|cold|rain|rainy|sunny|snow|thunderstorm|windy|drizzle)\\b\\sin\\s\\b(?<city>[a-z]+[ a-z]+?)\\b(?<time>day\\safter\\stomorrow|tomorrow|today)$',
   intent:'WeatherForecast'
 },{
-  pattern:'\\b(?<weather>hot|cold|rain|rainy|sunny|snow|thunderstorm|windy|drizzle)\\b\\s\\b(?<time>day\\safter\\stomorrow|tomorrow|today)\\sin\\s\\b(?<city>[a-z]+[ a-z]+?)$',
+  pattern:'\\b(?<weather>hot|cold|rain|rainy|sunny|snow|thunderstorm|windy|drizzle)\\b\\s\\b(?<time>day\\safter\\stomorrow|tomorrow|today|now)\\sin\\s\\b(?<city>[a-z]+[ a-z]+?)$',
   intent:'WeatherForecast'
 }];
 
