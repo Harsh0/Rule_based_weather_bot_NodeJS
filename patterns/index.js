@@ -4,10 +4,10 @@ const patternDict = [{
   pattern:'\\b(?<greeting>Hi|Hello|Hey)\\b',
   intent:'Hello'
 },{
-  pattern:'like\\sin\\s\\b(?<city>.+)',
+  pattern:'\\blike\\sin\\s\\b(?<city>.+)',
   intent:'CurrentWeather'
 },{
-  pattern:'weather\\sin\\sb(?<city>.+)',
+  pattern:'\\bweather\\sin\\s\\b(?<city>.+)',
   intent:'CurrentWeather'
 },{
   pattern:'\\b(bye|exit)\\b',
