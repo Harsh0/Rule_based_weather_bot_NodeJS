@@ -1,5 +1,6 @@
 'use strict';
-//create and API server
+//create and API server\
+const fs = require('fs');
 const Restify = require('restify');
 const server = Restify.createServer({
   name:'VanillaMessanger'
@@ -80,7 +81,13 @@ server.post('/',(req,res,next)=>{
     }
   });
   return next();
-})
+});
+
+server.get('/privacypolicy',(req,res,next)=>{
+  var rs = fs.createReadStream('Privacy_Policy.html');
+	res.writeHead(200,{'Content-Type':'text/html'});
+  rs.pipe(res);
+});
 
 //Subscribe
 f.subscribe();
