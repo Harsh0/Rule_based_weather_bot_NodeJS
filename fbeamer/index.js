@@ -1,6 +1,6 @@
 'use strict';
 const request = require('request');
-
+const crypto = require('crypto');
 class FBeamer {
   constructor(config){
     try{

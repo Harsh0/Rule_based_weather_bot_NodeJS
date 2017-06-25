@@ -38,6 +38,7 @@ server.post('/',(req,res,next)=>{
     // f.img(msg.sender,"https://avatars1.githubusercontent.com/u/20552536?v=3&s=460");
     if(msg.message.text){
       //If a text message received
+      console.log(msg.message.text);
       matcher(msg.message.text,data=>{
         switch(data.intent){
           case 'Hello':
