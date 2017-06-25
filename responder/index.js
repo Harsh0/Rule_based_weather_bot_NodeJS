@@ -12,7 +12,7 @@ module.exports = (f)=>{
       if(msg.message.text){
         //If a text message received
         // console.log(msg.message.text);
-        let obj = {'input':msg.message.text,'output':[]};
+        let obj = {'input':msg.message.text,'output':[],'sender':msg.sender};
         matcher(msg.message.text,data=>{
           switch(data.intent){
             case 'Hello':
