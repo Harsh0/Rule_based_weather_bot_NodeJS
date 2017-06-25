@@ -9,6 +9,7 @@ const PORT = process.env.PORT ||8080;
 
 server.use(Restify.jsonp());
 server.use(Restify.bodyParser());
+server.use((req,res,next)=>f.verifySignature(req,res,next));
 
 //Token
 const config = require('./config');

@@ -27,6 +27,24 @@ class FBeamer {
       return res.status(403).end();
     }
   }
+	verifySignature(req,res,next){
+		if(req.method=='POST'){
+			let signature = req.headers['x-hub-signature'];
+			try{
+				if(!signature){
+					throw new Error("Signature missing");
+				}else{
+						let hash = crypto.createHmac('sha1',this.APP_SECRET).update(JSON.stringify(req.body)).digest('hex');
+						if(hash!=signature.split("=")[1]){
+							throw new Error("Invalid Signature");
+						}
+				}
+        return next();
+			}catch(err){
+				res.send(500,err);
+			}
+		}
+	}
   subscribe(){
     request({
       uri:'https://graph.facebook.com/v2.6/me/subscribed_apps',
