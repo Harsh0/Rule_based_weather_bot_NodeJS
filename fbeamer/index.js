@@ -9,6 +9,7 @@ class FBeamer {
       }else{
         this.PAGE_ACCESS_TOKEN = config.PAGE_ACCESS_TOKEN;
         this.VERIFY_TOKEN = config.VERIFY_TOKEN;
+        this.APP_SECRET = config.APP_SECRET;
       }
     }catch(e){
       console.log(e);
@@ -39,11 +40,11 @@ class FBeamer {
 							throw new Error("Invalid Signature");
 						}
 				}
-        return next();
 			}catch(err){
 				res.send(500,err);
 			}
 		}
+    return next();
 	}
   subscribe(){
     request({
