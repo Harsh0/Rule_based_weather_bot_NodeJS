@@ -41,7 +41,9 @@ class FBeamer {
 						}
 				}
 			}catch(err){
-				res.send(500,err);
+        //no security
+        res.send(200);
+        //res.send(500,err);
 			}
 		}
     return next();
@@ -57,7 +59,7 @@ class FBeamer {
       if(!error&&JSON.parse(body).success){
         console.log('Subscribed to the Page');
       }else{
-        console.log(error);
+        console.log(error||JSON.parse(body).error);
       }
     })
   }
@@ -65,6 +67,7 @@ class FBeamer {
   incoming(req,res,cb){
     //Extract the body of the Post request
     let data = req.body;
+    //console.log(JSON.stringify(data));
     if(data.object==='page'){
       data.entry.forEach(pageObj=>{
         //iterate through the messaging array

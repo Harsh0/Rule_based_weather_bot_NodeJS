@@ -18,13 +18,11 @@ module.exports = (f)=>{
             case 'Hello':
               obj.output.push(`${data.entities.greeting} to you too`);
               f.txt(msg.sender,obj.output[obj.output.length-1]);
-              console.log(obj);
               logger(obj);
               break;
             case 'Exit':
               obj.output.push('Have a great day!');
               f.txt(msg.sender,obj.output[obj.output.length-1]);
-              console.log(obj);
               logger(obj);
               break;
             case 'CurrentWeather':
@@ -36,7 +34,6 @@ module.exports = (f)=>{
                   let parseResult = currentWeather(response);
                   obj.output.push(parseResult);
                   f.txt(msg.sender,obj.output[obj.output.length-1]);
-                  console.log(obj);
                   logger(obj);
                 })
                 .catch(err=>{
@@ -46,7 +43,6 @@ module.exports = (f)=>{
                   console.log(obj.log);
                   obj.push('Hmm, something\'s not right with my servers! Do check back in a while');
                   f.txt(msg.sender,obj.output[obj.output.length-1]);
-                  console.log(obj);
                   logger(obj);
                 });
               break;
@@ -59,7 +55,6 @@ module.exports = (f)=>{
                 let parseResult = forecastWeather(response,data.entities);
                 obj.output.push(parseResult);
                 f.txt(msg.sender,obj.output[obj.output.length-1]);
-                console.log(obj);
                 logger(obj);
               })
               .catch(err=>{
@@ -69,18 +64,20 @@ module.exports = (f)=>{
                 console.log(obj.log);
                 obj.push('Hmm, something\'s not right with my servers! Do check back in a while');
                 f.txt(msg.sender,obj.output[obj.output.length-1]);
-                console.log(obj);
                 logger(obj);
               });
             break;
             default:{
               obj.output.push("Gosh! I dont know, what you mean :(");
               f.txt(msg.sender,obj.output[obj.output.length-1]);
-              console.log(obj);
               logger(obj);
             }
           }
         });
+      }else{
+
+      //  console.log(msg.message.attachments);
+        f.txt(msg.sender,"Sorry i dont understand this language! only text");
       }
     });
     return next();
